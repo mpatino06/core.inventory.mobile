@@ -16,8 +16,24 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Models\DbModels\CountPlan.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\DbModels\CountPlanDetail.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\DbModels\CountPlanDetailItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\DbModels\OrderDetail.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\DbModels\OrderDetailProduct.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\DbModels\OrderTShirt.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\DbModels\Product.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\DbModels\Provider.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\ListItems.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\OrderDetailExtend.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\RctExtendModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\ViewCountPlanDetailItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\MasterPageItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\ViewCountPlanDetail.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\ViewCountPlanDetailExtend.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\ViewCountPlanDetailPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\ViewOrder.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\CountServices.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\OrderService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\Count\PlanList.xaml.cs">
       <DependentUpon>PlanList.xaml</DependentUpon>
       <SubType>Code</SubType>

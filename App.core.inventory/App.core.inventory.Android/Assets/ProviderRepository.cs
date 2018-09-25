@@ -2,13 +2,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using App.core.inventory.Models.DbModels;
+using SQLite;
 
 namespace App.core.inventory.Droid.Assets
 {
@@ -20,7 +22,7 @@ namespace App.core.inventory.Droid.Assets
 		public ProviderRepository(string dbPath)
 		{
 			this.conn = new SQLiteAsyncConnection(dbPath, true);
-			this.conn.CreateTableAsync<Provider>(CreateFlags.None).Wait();
+			this.conn.CreateTableAsync<Provider>().Wait();
 		}
 
 		public async Task<List<Provider>> GetProviderName(string name)
@@ -69,7 +71,7 @@ namespace App.core.inventory.Droid.Assets
 				};
 				var _p5 = this.conn.InsertAsync(p5);
 			
-				listAsync = await this.conn.Table<Provider>().Where(a=> a.Name ==  name).ToListAsync();
+				listAsync = await conn.Table<Provider>().Where(a=> a.Name ==  name).ToListAsync();
 
 				return listAsync;
 		}

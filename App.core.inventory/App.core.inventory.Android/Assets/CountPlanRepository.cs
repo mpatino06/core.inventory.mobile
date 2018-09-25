@@ -2,13 +2,17 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using App.core.inventory.Models;
+using App.core.inventory.Models.DbModels;
+
+using SQLite;
 
 namespace App.core.inventory.Droid.Assets
 {
@@ -20,16 +24,16 @@ namespace App.core.inventory.Droid.Assets
 
 		public CountPlanRepository(string dbPath)
 		{
-			this.conn = new SQLiteAsyncConnection(dbPath, true);
-			this.conn.CreateTableAsync<CountPlan>(CreateFlags.None).Wait();
-			this.conn.CreateTableAsync<CountPlanDetail>(CreateFlags.None).Wait();
-			this.conn.CreateTableAsync<CountPlanDetailItem>(CreateFlags.None).Wait();
-			this.conn.CreateTableAsync<Product>(CreateFlags.None).Wait();
+			conn = new SQLiteAsyncConnection(dbPath);
+			conn.CreateTableAsync<CountPlan>().Wait();
+			//this.conn.CreateTableAsync<CountPlanDetail>(CreateFlags.None).Wait();
+			//this.conn.CreateTableAsync<CountPlanDetailItem>(CreateFlags.None).Wait();
+			//this.conn.CreateTableAsync<Product>(CreateFlags.None).Wait();
 		}
 
 		public async Task<List<CountPlan>> GetAllAsync()
 		{
-			List<CountPlan> countPlanList = await this.conn.Table<CountPlan>().Where(a => a.Status == "2").ToListAsync();
+			List<CountPlan> countPlanList = await conn.Table<CountPlan>().Where(a => a.Status == "2").ToListAsync();
 			List<CountPlan> x = countPlanList;
 			countPlanList = (List<CountPlan>)null;
 			return x;
@@ -70,9 +74,9 @@ namespace App.core.inventory.Droid.Assets
 				qry += " CountPlanDetail CPD ON  CP.Id = CPD.CountPlanId INNER JOIN";
 				qry += " Product P ON CPD.ProductCode = P.Code LEFT OUTER JOIN";
 				qry += " CountPlanDetailItem CPDI ON ((CPD.CountPlanId = CPDI.CountPlanId) AND (P.Code = CPDI.ProductCode ))";
-				qry = qry + " WHERE CP.Id = '" + (object)Id + "' ";
+				qry = qry + " WHERE CP.Id = '" + Id + "' ";
 				qry += " GROUP BY CP.Id, CP.Name, CP.Description, CPD.ProductCode, CPD.Quantity,  CPD.TotalCounted, P.Barcode, P.Description";
-				List<ViewCountPlanDetail> viewCountPlanDetailList = await this.conn.QueryAsync<ViewCountPlanDetail>(qry, Array.Empty<object>());
+				List<ViewCountPlanDetail> viewCountPlanDetailList = await conn.QueryAsync<ViewCountPlanDetail>(qry, Array.Empty<object>());
 				return viewCountPlanDetailList;
 			}
 			catch (Exception ex)
@@ -226,7 +230,7 @@ namespace App.core.inventory.Droid.Assets
 			try
 			{
 				int planId = item.Id;
-				CountPlan countPlan1 = await this.conn.Table<CountPlan>().Where((Expression<Func<CountPlan, bool>>)(a => a.Id == item.Id)).FirstOrDefaultAsync();
+				CountPlan countPlan1 = await conn.Table<CountPlan>().Where(a => a.Id == item.Id).FirstOrDefaultAsync();
 				CountPlan getForUpdate = countPlan1;
 				countPlan1 = (CountPlan)null;
 				CountPlanDetail planDetails = new CountPlanDetail();
@@ -246,7 +250,7 @@ namespace App.core.inventory.Droid.Assets
 					bool createNewPlan = Convert.ToBoolean(item.Value2);
 					if (createNewPlan)
 					{
-						CountPlan countPlan2 = await this.conn.Table<CountPlan>().OrderByDescending<int>((Expression<Func<CountPlan, int>>)(a => a.Id)).FirstAsync();
+						CountPlan countPlan2 = await conn.Table<CountPlan>().OrderByDescending(a => a.Id).FirstAsync();
 						CountPlan lastOrDefault = countPlan2;
 						countPlan2 = (CountPlan)null;
 						CountPlan countPlan4 = new CountPlan();
@@ -277,9 +281,9 @@ namespace App.core.inventory.Droid.Assets
 							qry += " CountPlanDetail CPD ON  CP.Id = CPD.CountPlanId INNER JOIN";
 							qry += " Product P ON CPD.ProductCode = P.Code LEFT OUTER JOIN";
 							qry += " CountPlanDetailItem CPDI ON ((CPD.CountPlanId = CPDI.CountPlanId) AND (P.Code = CPDI.ProductCode ))";
-							qry = qry + " WHERE CP.Id = '" + (object)planId + "' ";
+							qry = qry + " WHERE CP.Id = '" + planId + "' ";
 							qry += " GROUP BY CP.Id, CP.Name, CP.Description, CPD.ProductCode, CPD.Quantity,  CPD.TotalCounted, P.Barcode, P.Description";
-							List<ViewCountPlanDetail> viewCountPlanDetailList = await this.conn.QueryAsync<ViewCountPlanDetail>(qry, Array.Empty<object>());
+							List<ViewCountPlanDetail> viewCountPlanDetailList = await conn.QueryAsync<ViewCountPlanDetail>(qry);
 							List<ViewCountPlanDetail> list = viewCountPlanDetailList;
 							viewCountPlanDetailList = (List<ViewCountPlanDetail>)null;
 							if (list != null)
@@ -297,7 +301,7 @@ namespace App.core.inventory.Droid.Assets
 									planDetails.UserIdCreated = 0;
 									if (planDetails.Quantity > 0)
 									{
-										int num2 = await this.conn.InsertAsync((object)planDetails);
+										int num2 = await this.conn.InsertAsync(planDetails);
 									}
 									row = (ViewCountPlanDetail)null;
 								}
@@ -305,16 +309,16 @@ namespace App.core.inventory.Droid.Assets
 							qry = (string)null;
 							list = (List<ViewCountPlanDetail>)null;
 						}
-						lastOrDefault = (CountPlan)null;
-						countplan = (CountPlan)null;
+						lastOrDefault = null;
+						countplan = null;
 					}
-					planName = (string)null;
-					planDescription = (string)null;
-					warehouse = (string)null;
+					planName = null;
+					planDescription = null;
+					warehouse = null;
 				}
 				result = true;
-				getForUpdate = (CountPlan)null;
-				planDetails = (CountPlanDetail)null;
+				getForUpdate = null;
+				planDetails = null;
 			}
 			catch (Exception ex)
 			{

@@ -1,0 +1,7 @@
+E:\REPOSITORIOS\core.inventory.mobile\App.core.inventory\App.core.inventory.Android\obj\Debug\MonoAndroid90\App.core.inventory.Android.csprojAssemblyReference.cache
+E:\REPOSITORIOS\core.inventory.mobile\App.core.inventory\App.core.inventory.Android\obj\Debug\MonoAndroid90\res.flag
+E:\REPOSITORIOS\core.inventory.mobile\App.core.inventory\App.core.inventory.Android\obj\Debug\MonoAndroid90\App.core.inventory.Android.csproj.CoreCompileInputs.cache
+E:\REPOSITORIOS\core.inventory.mobile\App.core.inventory\App.core.inventory.Android\obj\Debug\MonoAndroid90\App.core.inventory.Droid.MainPage.xaml.g.cs
+E:\REPOSITORIOS\core.inventory.mobile\App.core.inventory\App.core.inventory.Android\obj\Debug\MonoAndroid90\App.core.inventory.Droid.App.xaml.g.cs
+E:\REPOSITORIOS\core.inventory.mobile\App.core.inventory\App.core.inventory.Android\obj\Debug\MonoAndroid90\App.core.inventory.Droid.Views.Count.PlanList.xaml.g.cs
+E:\REPOSITORIOS\core.inventory.mobile\App.core.inventory\App.core.inventory.Android\obj\Debug\MonoAndroid90\App.core.inventory.Droid.Views.MainMenuDetail.xaml.g.cs

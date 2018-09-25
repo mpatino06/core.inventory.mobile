@@ -1,32 +1,34 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Paths>
-  <Jars></Jars>
+  <Jars>
+    <Jar>E:\REPOSITORIOS\core.inventory.mobile\App.core.inventory\App.core.inventory.Android\obj\Debug\lp\1\jl\formsviewgroup.jar</Jar>
+  </Jars>
   <ResolvedResourceDirectories>
-    <ResolvedResourceDirectory>E:\REPOSITORIOS\core.inventory.mobile\App.core.inventory\App.core.inventory\App.core.inventory.Android\obj\Debug\__library_projects__\SQLitePCLRaw.batteries_green\library_project_imports\res</ResolvedResourceDirectory>
-    <ResolvedResourceDirectory>E:\REPOSITORIOS\core.inventory.mobile\App.core.inventory\App.core.inventory\App.core.inventory.Android\obj\Debug\__library_projects__\SQLitePCLRaw.batteries_v2\library_project_imports\res</ResolvedResourceDirectory>
-    <ResolvedResourceDirectory>E:\REPOSITORIOS\core.inventory.mobile\App.core.inventory\App.core.inventory\App.core.inventory.Android\obj\Debug\__library_projects__\SQLitePCLRaw.core\library_project_imports\res</ResolvedResourceDirectory>
-    <ResolvedResourceDirectory>E:\REPOSITORIOS\core.inventory.mobile\App.core.inventory\App.core.inventory\App.core.inventory.Android\obj\Debug\__library_projects__\SQLitePCLRaw.lib.e_sqlite3\library_project_imports\res</ResolvedResourceDirectory>
-    <ResolvedResourceDirectory>E:\REPOSITORIOS\core.inventory.mobile\App.core.inventory\App.core.inventory\App.core.inventory.Android\obj\Debug\__library_projects__\SQLitePCLRaw.provider.e_sqlite3\library_project_imports\res</ResolvedResourceDirectory>
-    <ResolvedResourceDirectory>E:\REPOSITORIOS\core.inventory.mobile\App.core.inventory\App.core.inventory\App.core.inventory.Android\obj\Debug\__library_projects__\Xamarin.Forms.Platform.Android\library_project_imports\res</ResolvedResourceDirectory>
-    <ResolvedResourceDirectory>E:\REPOSITORIOS\core.inventory.mobile\App.core.inventory\App.core.inventory\App.core.inventory.Android\obj\Debug\__library_projects__\Xamarin.Forms.Platform\library_project_imports\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>E:\REPOSITORIOS\core.inventory.mobile\App.core.inventory\App.core.inventory.Android\obj\Debug\lp\7\jl\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>E:\REPOSITORIOS\core.inventory.mobile\App.core.inventory\App.core.inventory.Android\obj\Debug\lp\8\jl\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>E:\REPOSITORIOS\core.inventory.mobile\App.core.inventory\App.core.inventory.Android\obj\Debug\lp\9\jl\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>E:\REPOSITORIOS\core.inventory.mobile\App.core.inventory\App.core.inventory.Android\obj\Debug\lp\10\jl\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>E:\REPOSITORIOS\core.inventory.mobile\App.core.inventory\App.core.inventory.Android\obj\Debug\lp\11\jl\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>E:\REPOSITORIOS\core.inventory.mobile\App.core.inventory\App.core.inventory.Android\obj\Debug\lp\22\jl\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>E:\REPOSITORIOS\core.inventory.mobile\App.core.inventory\App.core.inventory.Android\obj\Debug\lp\23\jl\res</ResolvedResourceDirectory>
   </ResolvedResourceDirectories>
   <ResolvedAssetDirectories>
-    <ResolvedAssetDirectory>obj\Debug\__library_projects__\SQLitePCLRaw.batteries_green\library_project_imports\assets</ResolvedAssetDirectory>
-    <ResolvedAssetDirectory>obj\Debug\__library_projects__\SQLitePCLRaw.batteries_v2\library_project_imports\assets</ResolvedAssetDirectory>
-    <ResolvedAssetDirectory>obj\Debug\__library_projects__\SQLitePCLRaw.core\library_project_imports\assets</ResolvedAssetDirectory>
-    <ResolvedAssetDirectory>obj\Debug\__library_projects__\SQLitePCLRaw.lib.e_sqlite3\library_project_imports\assets</ResolvedAssetDirectory>
-    <ResolvedAssetDirectory>obj\Debug\__library_projects__\SQLitePCLRaw.provider.e_sqlite3\library_project_imports\assets</ResolvedAssetDirectory>
-    <ResolvedAssetDirectory>obj\Debug\__library_projects__\Xamarin.Forms.Platform.Android\library_project_imports\assets</ResolvedAssetDirectory>
-    <ResolvedAssetDirectory>obj\Debug\__library_projects__\Xamarin.Forms.Platform\library_project_imports\assets</ResolvedAssetDirectory>
+    <ResolvedAssetDirectory>obj\\Debug\lp\7\jl\assets</ResolvedAssetDirectory>
+    <ResolvedAssetDirectory>obj\\Debug\lp\8\jl\assets</ResolvedAssetDirectory>
+    <ResolvedAssetDirectory>obj\\Debug\lp\9\jl\assets</ResolvedAssetDirectory>
+    <ResolvedAssetDirectory>obj\\Debug\lp\10\jl\assets</ResolvedAssetDirectory>
+    <ResolvedAssetDirectory>obj\\Debug\lp\11\jl\assets</ResolvedAssetDirectory>
+    <ResolvedAssetDirectory>obj\\Debug\lp\22\jl\assets</ResolvedAssetDirectory>
+    <ResolvedAssetDirectory>obj\\Debug\lp\23\jl\assets</ResolvedAssetDirectory>
   </ResolvedAssetDirectories>
   <ResolvedEnvironmentFiles />
   <ResolvedResourceDirectoryStamps>
-    <ResolvedResourceDirectoryStamp>E:\REPOSITORIOS\core.inventory.mobile\App.core.inventory\App.core.inventory\App.core.inventory.Android\obj\Debug\__library_projects__\SQLitePCLRaw.batteries_green.stamp</ResolvedResourceDirectoryStamp>
-    <ResolvedResourceDirectoryStamp>E:\REPOSITORIOS\core.inventory.mobile\App.core.inventory\App.core.inventory\App.core.inventory.Android\obj\Debug\__library_projects__\SQLitePCLRaw.batteries_v2.stamp</ResolvedResourceDirectoryStamp>
-    <ResolvedResourceDirectoryStamp>E:\REPOSITORIOS\core.inventory.mobile\App.core.inventory\App.core.inventory\App.core.inventory.Android\obj\Debug\__library_projects__\SQLitePCLRaw.core.stamp</ResolvedResourceDirectoryStamp>
-    <ResolvedResourceDirectoryStamp>E:\REPOSITORIOS\core.inventory.mobile\App.core.inventory\App.core.inventory\App.core.inventory.Android\obj\Debug\__library_projects__\SQLitePCLRaw.lib.e_sqlite3.stamp</ResolvedResourceDirectoryStamp>
-    <ResolvedResourceDirectoryStamp>E:\REPOSITORIOS\core.inventory.mobile\App.core.inventory\App.core.inventory\App.core.inventory.Android\obj\Debug\__library_projects__\SQLitePCLRaw.provider.e_sqlite3.stamp</ResolvedResourceDirectoryStamp>
-    <ResolvedResourceDirectoryStamp>E:\REPOSITORIOS\core.inventory.mobile\App.core.inventory\App.core.inventory\App.core.inventory.Android\obj\Debug\__library_projects__\Xamarin.Forms.Platform.Android.stamp</ResolvedResourceDirectoryStamp>
-    <ResolvedResourceDirectoryStamp>E:\REPOSITORIOS\core.inventory.mobile\App.core.inventory\App.core.inventory\App.core.inventory.Android\obj\Debug\__library_projects__\Xamarin.Forms.Platform.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>E:\REPOSITORIOS\core.inventory.mobile\App.core.inventory\App.core.inventory.Android\obj\Debug\lp\7.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>E:\REPOSITORIOS\core.inventory.mobile\App.core.inventory\App.core.inventory.Android\obj\Debug\lp\8.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>E:\REPOSITORIOS\core.inventory.mobile\App.core.inventory\App.core.inventory.Android\obj\Debug\lp\9.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>E:\REPOSITORIOS\core.inventory.mobile\App.core.inventory\App.core.inventory.Android\obj\Debug\lp\10.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>E:\REPOSITORIOS\core.inventory.mobile\App.core.inventory\App.core.inventory.Android\obj\Debug\lp\11.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>E:\REPOSITORIOS\core.inventory.mobile\App.core.inventory\App.core.inventory.Android\obj\Debug\lp\22.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>E:\REPOSITORIOS\core.inventory.mobile\App.core.inventory\App.core.inventory.Android\obj\Debug\lp\23.stamp</ResolvedResourceDirectoryStamp>
   </ResolvedResourceDirectoryStamps>
 </Paths>

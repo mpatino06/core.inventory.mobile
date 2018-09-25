@@ -19,7 +19,11 @@ namespace App.core.inventory.Droid
 			base.OnCreate (bundle);
 
 			global::Xamarin.Forms.Forms.Init (this, bundle);
-			LoadApplication (new App.core.inventory.App ());
+			//LoadApplication (new App.core.inventory.App ());
+		
+			string dbPath = FileAccessHelper.GetLocalFilePath("inventory.db3");
+			LoadApplication(new App(dbPath));
+
 		}
 	}
 }

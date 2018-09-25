@@ -1,6 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
+using System.Threading.Tasks;
+using App.core.inventory.Droid.Assets;
+using App.core.inventory.Models;
+using App.core.inventory.Models.DbModels;
 
 namespace App.core.inventory.Services
 {
@@ -10,8 +15,9 @@ namespace App.core.inventory.Services
 
 		public async Task<List<CountPlan>> GetAll()
 		{
-			CountPlanRepository _repository = App.Core.Inventory.App.CountPlanRepo;
-			this.Items = new List<CountPlan>();
+			CountPlanRepository _repository = App.CountPlanRepo;
+
+			Items = new List<CountPlan>();
 			try
 			{
 				List<CountPlan> countPlanList = await _repository.GetAllAsync();
@@ -28,7 +34,7 @@ namespace App.core.inventory.Services
 
 		public async Task<List<ListItems>> GetCountByIdPage(int id)
 		{
-			CountPlanRepository _repository = App.Core.Inventory.App.CountPlanRepo;
+			CountPlanRepository _repository = App.CountPlanRepo;
 			List<ListItems> plan = new List<ListItems>();
 			try
 			{
@@ -46,7 +52,7 @@ namespace App.core.inventory.Services
 
 		public async Task<List<ViewCountPlanDetailItem>> GetByPlanAndProduct(int id, string product)
 		{
-			CountPlanRepository _repository = App.Core.Inventory.App.CountPlanRepo;
+			CountPlanRepository _repository = App.CountPlanRepo;
 			List<ViewCountPlanDetailItem> plan = new List<ViewCountPlanDetailItem>();
 			try
 			{
@@ -64,7 +70,7 @@ namespace App.core.inventory.Services
 
 		public async Task<bool> SaveDetail(List<CountPlanDetailItem> item)
 		{
-			CountPlanRepository _repository = App.Core.Inventory.App.CountPlanRepo;
+			CountPlanRepository _repository = App.CountPlanRepo;
 			bool result = false;
 			try
 			{
@@ -84,7 +90,7 @@ namespace App.core.inventory.Services
 			bool result = false;
 			try
 			{
-				CountPlanRepository _repository = App.Core.Inventory.App.CountPlanRepo;
+				CountPlanRepository _repository = App.CountPlanRepo;
 				bool flag = await _repository.UpdatePlan(item);
 				result = flag;
 				_repository = (CountPlanRepository)null;

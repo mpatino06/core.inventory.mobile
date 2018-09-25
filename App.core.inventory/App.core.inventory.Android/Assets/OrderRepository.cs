@@ -2,13 +2,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using App.core.inventory.Models;
+using App.core.inventory.Models.DbModels;
+using SQLite;
 
 namespace App.core.inventory.Droid.Assets
 {
@@ -19,25 +22,25 @@ namespace App.core.inventory.Droid.Assets
 		public OrderRepository(string dbPath)
 		{
 			this.conn = new SQLiteAsyncConnection(dbPath, true);
-			this.conn.CreateTableAsync<OrderTShirt>(CreateFlags.None).Wait();
-			this.conn.CreateTableAsync<OrderDetail>(CreateFlags.None).Wait();
+			this.conn.CreateTableAsync<OrderTShirt>().Wait();
+			this.conn.CreateTableAsync<OrderDetail>().Wait();
 		}
 
 		public async Task<List<OrderTShirt>> GetOrdersByProviderCode(string code)
 		{
-			List<OrderTShirt> listAsync = await this.conn.Table<OrderTShirt>().Where((Expression<Func<OrderTShirt, bool>>)(a => a.ProviderCode == code)).ToListAsync();
+			List<OrderTShirt> listAsync = await conn.Table<OrderTShirt>().Where(a => a.ProviderCode == code).ToListAsync();
 			return listAsync;
 		}
 
 		public async Task<List<OrderTShirt>> GetOrdersByCode(string code)
 		{
-			List<OrderTShirt> listAsync = await this.conn.Table<OrderTShirt>().Where((Expression<Func<OrderTShirt, bool>>)(a => a.Code == code)).ToListAsync();
+			List<OrderTShirt> listAsync = await conn.Table<OrderTShirt>().Where(a => a.Code == code).ToListAsync();
 			return listAsync;
 		}
 
 		public async Task<int> UpdateOrder(OrderTShirt order)
 		{
-			int num = await this.conn.UpdateAsync((object)order);
+			int num = await conn.UpdateAsync(order);
 			return num;
 		}
 
@@ -59,7 +62,7 @@ namespace App.core.inventory.Droid.Assets
 
 		public async Task<List<OrderDetail>> GetOrderDetailByOrderAndProduct(string order, string product)
 		{
-			List<OrderDetail> listAsync = await this.conn.Table<OrderDetail>().Where((Expression<Func<OrderDetail, bool>>)(a => a.OrderCode == order && a.ProductCode == product)).ToListAsync();
+			List<OrderDetail> listAsync = await conn.Table<OrderDetail>().Where(a => a.OrderCode == order && a.ProductCode == product).ToListAsync();
 			return listAsync;
 		}
 
@@ -68,7 +71,7 @@ namespace App.core.inventory.Droid.Assets
 			int success = 0;
 			try
 			{
-				int num = await this.conn.UpdateAsync((object)detail);
+				int num = await conn.UpdateAsync(detail);
 				success = num;
 			}
 			catch (Exception ex)
@@ -80,7 +83,7 @@ namespace App.core.inventory.Droid.Assets
 
 		public async Task<OrderDetail> GetOrderDetailByCode(string order)
 		{
-			OrderDetail orderDetail = await this.conn.Table<OrderDetail>().Where((Expression<Func<OrderDetail, bool>>)(a => a.OrderCode == order)).FirstOrDefaultAsync();
+			OrderDetail orderDetail = await conn.Table<OrderDetail>().Where(a => a.OrderCode == order).FirstOrDefaultAsync();
 			return orderDetail;
 		}
 
@@ -88,7 +91,7 @@ namespace App.core.inventory.Droid.Assets
 		{
 			try
 			{
-				string[] myList = items.Select<OrderTShirt, string>((Func<OrderTShirt, string>)(a => a.Code)).ToArray<string>();
+				string[] myList = items.Select<OrderTShirt, string>(a => a.Code).ToArray();
 				string qry = "SELECT Od.Id,";
 				qry += "Ord.Id AS IdOrder,";
 				qry += "Ord.Code,";
@@ -114,10 +117,11 @@ namespace App.core.inventory.Droid.Assets
 				qry += "Provider AS Pro ON RTRIM(Ord.ProviderCode) = RTRIM(Pro.Code) LEFT OUTER JOIN ";
 				qry += "OrderDetailProduct AS Odp ON(RTRIM((Od.OrderCode) = RTRIM(Odp.OrderCode)) AND(RTRIM(Odp.ProductCode) = RTRIM(Od.ProductCode)) AND odp.Status = 0) INNER JOIN ";
 				qry += "Product AS Prod ON RTRIM(Od.ProductCode) = RTRIM(Prod.Code) ";
-				qry += ((IEnumerable<string>)myList).Count<string>() > 1 ? "WHERE Ord.code IN ('" + string.Join("','", myList) + "')" : "where Ord.code = '" + myList[0] + "'";
+				qry += myList.Count() > 1 ? "WHERE Ord.code IN ('" + string.Join("','", myList) + "')" : "where Ord.code = '" + myList[0] + "'";
 				qry += " GROUP BY Od.Id, Ord.Id, Ord.Code, Ord.Description, Ord.ProviderCode, Pro.Name, Pro.Barcode, Od.ProductCode, Prod.Id, Prod.Description, ";
 				qry += "Prod.BarCode, Od.Quantity";
-				List<ViewOrder> viewOrderList = await this.conn.QueryAsync<ViewOrder>(qry, Array.Empty<object>());
+
+				List<ViewOrder> viewOrderList = await conn.QueryAsync<ViewOrder>(qry);
 				return viewOrderList;
 			}
 			catch (Exception ex1)
